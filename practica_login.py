@@ -106,7 +106,7 @@ def login():
     nombres= []
     for i in range(len(BD)):
         nombres.append(BD[i]['name'])
-    if name not in nombres:
+    while name not in nombres:
         print('El usuario no existe')
         name= input('Escribe el nombre del usuario: \n')
     else:
@@ -117,6 +117,7 @@ def login():
             password= input('Escribe el password: \n')
         else:
             print('Acceso correcto, usuario Logueado')
+
 
 def main():
     if BD == []:
