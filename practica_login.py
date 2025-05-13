@@ -101,7 +101,6 @@ def login_password_validator(name, BD):
                 password_correcta= (i["password"])
         return password_correcta
 
-
 def login():
     name= input('Escribe el nombre del usuario: \n')
     nombres= []
