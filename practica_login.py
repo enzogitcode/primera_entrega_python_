@@ -1,42 +1,42 @@
 # Consigna
-# Para tu primera entrega, te proponemos que crees un programa que permita emular el registro y almacenamiento de usuarios en una base de datos. Hazlo utilizando el concepto de funciones, diccionarios, bucles y condicionales.
+"""
+Para tu primera entrega, te proponemos que crees un programa que permita emular el registro y almacenamiento de usuarios en una base de datos. Hazlo utilizando el concepto de funciones, diccionarios, bucles y condicionales.
 
-# Objetivos
-# Practicar el concepto de funciones.
+Objetivos
+Practicar el concepto de funciones.
 
-# Desarrollar la parte lógica para el registro de usuarios.
+Desarrollar la parte lógica para el registro de usuarios.
 
-# Requisitos
-# Diccionarios (guardado de datos)
+Requisitos
+Diccionarios (guardado de datos)
 
-# Input (solicitud de datos)
+Input (solicitud de datos)
 
-# Variables
+Variables
 
-# If (chequeo de datos)
+If (chequeo de datos)
 
-# While (iteración para el programa, sea para agregar, loguear o mostrar)
+While (iteración para el programa, sea para agregar, loguear o mostrar)
 
-# For (recorrer datos y para búsqueda)
+For (recorrer datos y para búsqueda)
 
-# Print
+Print
 
-# Funciones separadas para registro, almacenamiento y muestra
+Funciones separadas para registro, almacenamiento y muestra
 
-# Recomendaciones
-# El formato de registro es: Nombre de usuario y Contraseña.
+Recomendaciones
+El formato de registro es: Nombre de usuario y Contraseña.
 
-# Utilizar una función para almacenar la información y otra función para mostrar la información.
+Utilizar una función para almacenar la información y otra función para mostrar la información.
 
-# Utilizar un diccionario para almacenar dicha información, con el par usuario-contraseña (clave-valor).
+Utilizar un diccionario para almacenar dicha información, con el par usuario-contraseña (clave-valor).
 
-# Utilizar otra función para el login de usuarios, comprobando que la contraseña coincida con el usuario.
+Utilizar otra función para el login de usuarios, comprobando que la contraseña coincida con el usuario.
 
-# Formato
-# El proyecto debe compartirse utilizando Colab bajo el nombre “ArmaTuLogin+Apellido”, por ejemplo “ArmaTuLogin+Fernandez”
+Formato
+El proyecto debe compartirse utilizando Colab bajo el nombre “ArmaTuLogin+Apellido”, por ejemplo “ArmaTuLogin+Fernandez”
+"""
 
-##Armando el login
-##base de datos vacía
 BD= []
 
 ##clase user
@@ -91,15 +91,19 @@ def create_new_user():
                     new_user['password']= password
                     save_new_user(new_user)
 
+#Función para crear un nuevo usuario
 def save_new_user(new_user):
-    print(f'Nuevo usuario creado: {new_user['name']}')
+    print(f'Nuevo usuario creado: {new_user["name"]}')
     BD.append(new_user)
 
+#validar password en el login
 def login_password_validator(name, BD):
         for i in BD:
             if i["name"] == name:
                 password_correcta= (i["password"])
         return password_correcta
+
+#login
 
 def login():
     name= input('Escribe el nombre del usuario: \n')
@@ -117,8 +121,8 @@ def login():
             password= input('Escribe el password: \n')
         else:
             print('Acceso correcto, usuario Logueado')
-
-
+            
+#función main
 def main():
     if BD == []:
         print("""
