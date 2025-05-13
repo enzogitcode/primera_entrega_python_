@@ -39,42 +39,6 @@
 ##base de datos vacía
 BD= []
 
-def main():
-    if BD == []:
-        print("""
-              Elige una opción: 
-              opción r= Registrarse
-              opción s= Salir
-""")
-        opc= input('Escribe r o s \n')
-        match opc:
-            case 'r':
-                create_new_user()
-            case 's':
-                print('Muchas gracias! Vuelva Pronto!')
-            case _:
-                print('Elige una opción correcta')
-                opc= input('Escribe r o s  \n')
-    else:
-        print("""¿Desea crear otro usuario? O acceder al login? 
-       opción 's'= Crear otro usuario
-        opción 'n'= Salir
-              opción 'l'= acceder al login
-
-               """)
-        opc= input('\n')
-        match opc:
-            case 's':
-                create_new_user()
-                main()
-            case 'n':
-                print('Muchas gracias! vuelva pronto!')
-            case 'l':
-                login()
-            case _:
-                print('Elige una opción válida')
-                opc= input('Escribe "y" para crear otro o "n" para salir \n')
-
 ##clase user
 class User:
     def __init__(self, name, password):
@@ -88,10 +52,8 @@ class User:
         return len(name) > 0 and alphanum == True
     def password_validator(password):
         return len(password) > 0
-  
-# john= User(input('user: \n'), input('password: \n'))
 
-##función para crear nuevo usuario
+#función para crear nuevo usuario
 def create_new_user():
     new_user= {}
     if BD ==[]:
@@ -110,7 +72,7 @@ def create_new_user():
                     new_user["name"]= name
                     new_user['password']= password
                     save_new_user(new_user)
-                    print(f'Nuevo usuario creado: {new_user['name']}')
+                    print(f'Nuevo usuario creado: {new_user["name"]}')
                     main()
     else: 
         if new_user == {}: 
@@ -156,5 +118,41 @@ def login():
             password= input('Escribe el password: \n')
         else:
             print('Acceso correcto, usuario Logueado')
+
+def main():
+    if BD == []:
+        print("""
+              Elige una opción: 
+              opción r= Registrarse
+              opción s= Salir
+""")
+        opc= input('Escribe r o s \n')
+        match opc:
+            case 'r':
+                create_new_user()
+            case 's':
+                print('Muchas gracias! Vuelva Pronto!')
+            case _:
+                print('Elige una opción correcta')
+                opc= input('Escribe r o s  \n')
+    else:
+        print("""¿Desea crear otro usuario? O acceder al login? 
+       opción 's'= Crear otro usuario
+        opción 'n'= Salir
+              opción 'l'= acceder al login
+
+               """)
+        opc= input('\n')
+        match opc:
+            case 's':
+                create_new_user()
+                main()
+            case 'n':
+                print('Muchas gracias! vuelva pronto!')
+            case 'l':
+                login()
+            case _:
+                print('Elige una opción válida')
+                opc= input('Escribe "y" para crear otro o "n" para salir \n')
 
 main()
