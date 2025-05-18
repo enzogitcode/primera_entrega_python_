@@ -121,7 +121,26 @@ def login():
             password= input('Escribe el password: \n')
         else:
             print('Acceso correcto, usuario Logueado')
-            
+def menu_login():
+    print("""¿Desea crear otro usuario? O acceder al login? 
+       opción 's'= Crear otro usuario
+        opción 'n'= Salir
+              opción 'l'= acceder al login
+
+               """)
+    opc= input('\n')
+    match opc:
+        case 's':
+            create_new_user()
+            main()
+        case 'n':
+            print('Muchas gracias! vuelva pronto!')
+        case 'l':
+            login()
+        case _:
+            print('Elige una opción válida')
+            menu_login()
+    
 #función main
 def main():
     if BD == []:
@@ -140,23 +159,6 @@ def main():
                 print('Elige una opción correcta')
                 opc= input('Escribe r o s  \n')
     else:
-        print("""¿Desea crear otro usuario? O acceder al login? 
-       opción 's'= Crear otro usuario
-        opción 'n'= Salir
-              opción 'l'= acceder al login
-
-               """)
-        opc= input('\n')
-        match opc:
-            case 's':
-                create_new_user()
-                main()
-            case 'n':
-                print('Muchas gracias! vuelva pronto!')
-            case 'l':
-                login()
-            case _:
-                print('Elige una opción válida')
-                opc= input('Escribe "y" para crear otro o "n" para salir \n')
+        menu_login()
 
 main()
